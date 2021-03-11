@@ -11,43 +11,46 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
+  <div class="form-group mb-3">
+    <%= form.label :name, class: "form-label" %>
     <%= form.text_field :name %>
   </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.number_field :price %>
+  <div class="form-group mb-3">
+    <%= form.label :price, class: "form-label" %>
+    <%= form.number_field :price, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :category_id %>
-    <%= form.select :category_id, categories.map {|cat| [cat.name, cat.id]} %>
+  <div class="form-group mb-3">
+    <%= form.label :category_id, class: "form-label" %>
+    <%= form.select :category_id, categories.map {|cat| [cat.name, cat.id]}, class: "form-select" %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <div class="form-group mb-3">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_area :description, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :condition %>
-    <%= form.number_field :condition %>
+<h6 class='mb-3'>Condition</h6>
+ <div class="form-check form-check-line mb-3">
+  <%conditions.each do |option|%>
+    <%= form.label :condition, option.capitalize, class: "form-label" %>
+    <%= form.radio_button :condition, option, class: "mr-2" %>
+    <%end%>
   </div>
 
-  <div class="field">
-    <%= form.label :insurance %>
+  <div class="form-check mb-3">
+    <%= form.label :insurance, class: "form-label" %>
     <%= form.check_box :insurance %>
   </div>
 
-  <div class="field">
-    <%= form.label :images %>
-    <%= form.number_field :images %>
+  <div class="form-group mb-3">
+    <%= form.label :images, class: "form-label" %>
+    <%= form.number_field :images, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :available %>
+  <div class="form-group mb-3">
+    <%= form.label :available, class: "form-label" %>
     <%= form.check_box :available %>
   </div>
 
