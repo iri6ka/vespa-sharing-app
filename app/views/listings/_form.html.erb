@@ -27,6 +27,11 @@
   </div>
 
   <div class="form-group mb-3">
+    <%= form.label :engine_id, class: "form-label" %>
+    <%= form.select :engine_id, engines.map {|engine| [engine.name, engine.id]}, class: "form-select" %>
+  </div>
+
+  <div class="form-group mb-3">
     <%= form.label :description, class: "form-label" %>
     <%= form.text_area :description, class: "form-control" %>
   </div>
