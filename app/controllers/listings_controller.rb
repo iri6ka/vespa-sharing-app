@@ -68,6 +68,9 @@ class ListingsController < ApplicationController
       @conditions = Listing.conditions.keys
       @engines = Engine.all
       @features = Feature.all
+      @colors = Listing.colors.keys
+      @transmissions = Listing.transmissions.keys
+      @starters = Listing.starters.keys
     end
 
     # Only allow a list of trusted parameters through.

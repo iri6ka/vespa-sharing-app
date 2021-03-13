@@ -17,8 +17,8 @@
   </div>
 
   <div class="form-group mb-3">
-    <%= form.label :price, class: "form-label" %>
-    <%= form.number_field :price, class: "form-control" %>
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_area :description, class: "form-control" %>
   </div>
 
   <div class="form-group mb-3">
@@ -31,11 +31,7 @@
     <%= form.select :engine_id, engines.map {|engine| [engine.name, engine.id]}, class: "form-select" %>
   </div>
 
-  <div class="form-group mb-3">
-    <%= form.label :description, class: "form-label" %>
-    <%= form.text_area :description, class: "form-control" %>
-  </div>
-
+ 
 <h6 class='mb-3'>Condition</h6>
  <div class="form-check form-check-line mb-3">
   <%conditions.each do |option|%>
@@ -43,6 +39,26 @@
     <%= form.radio_button :condition, option, class: "mr-2" %>
     <%end%>
   </div>
+
+  <div class="form-group mb-3">
+    <%= form.label :odometer, class: "form-label" %>
+    <%= form.text_field :name %><p> kms </p>
+  </div>
+
+<div class="form-group mb-3">
+    <%= form.label :colors, class: "form-label" %>
+    <%= form.select :colors, Listing.colors.keys %>
+</div>
+
+<div class="form-group mb-3">
+    <%= form.label :transmission, class: "form-label" %>
+    <%= form.select :transmission, Listing.transmissions.keys %>
+</div>
+
+<div class="form-group mb-3">
+    <%= form.label :starter, class: "form-label" %>
+    <%= form.select :starter, Listing.starters.keys %>
+</div>
 
   <div class="form-check mb-3">
     <%= form.label :insurance, class: "form-label" %>
@@ -58,6 +74,12 @@
     <%= form.label :available, class: "form-label" %>
     <%= form.check_box :available %>
   </div>
+
+  <div class="form-group mb-3">
+    <%= form.label :price, class: "form-label" %>
+    <%= form.number_field :price, class: "form-control" %>
+  </div>
+
 
   <div class="actions">
     <%= form.submit %>
