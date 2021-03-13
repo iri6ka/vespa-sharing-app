@@ -10,12 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_09_144131) do
+ActiveRecord::Schema.define(version: 2021_03_13_125350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "engines", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -27,6 +33,15 @@ ActiveRecord::Schema.define(version: 2021_03_09_144131) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "listing_features", force: :cascade do |t|
+    t.bigint "listing_id", null: false
+    t.bigint "feature_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["feature_id"], name: "index_listing_features_on_feature_id"
+    t.index ["listing_id"], name: "index_listing_features_on_listing_id"
+  end
+
   create_table "listings", force: :cascade do |t|
     t.string "name"
     t.integer "price"
@@ -36,11 +51,12 @@ ActiveRecord::Schema.define(version: 2021_03_09_144131) do
     t.boolean "insurance"
     t.integer "images"
     t.boolean "available"
-    t.string "u"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_listings_on_category_id"
   end
 
+  add_foreign_key "listing_features", "features"
+  add_foreign_key "listing_features", "listings"
   add_foreign_key "listings", "categories"
 end
