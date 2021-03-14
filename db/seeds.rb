@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 categories = ["Model 946", "Cosa", "Elettrica", "ET2", "ET4", "GTL", "GTS", "GTS Super", "GTV", "LS", "LXV", "PK", "Primavera", "PX", "Rally", "S", "Sei Giorni", "Sprint"]
-features = ["Color", "Year", "Engine Capacity", "Insurance", "Odometer"]
+features = ["Seat lock", "Remote Control", "Electric", "Collectable", "LED headlight", "ABS", "Learner Friendly", "Legal to ride on Highways"]
 engines = ["50 cc", "90 cc", "100 cc", "125 cc", "150 cc", "200 cc", "300 cc"]
 
 if Category.count == 0
@@ -27,6 +27,6 @@ end
 if Engine.count == 0
     engines.each do |engine|
         Engine.create(name: engine)
-        puts "created #{engine} feature"
+        puts "created #{engine} engine"
     end
 end
