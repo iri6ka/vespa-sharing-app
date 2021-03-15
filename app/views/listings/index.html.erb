@@ -4,8 +4,12 @@
     <%@listings.each do |listing|%>
       <div class='col mb-4'>
         <div class='card border-dark h-100'>
-          <%=image_tag "vespa-orange.jpg", alt: "orange Vespa scooter", class: "thumbnail card-image top"%>
-          <div class='card-body'>
+            <% if listing.picture.attached?%>
+              <%=image_tag listing.picture, class: "thumbnail card-img top"%>
+            <% else %>
+              <%=image_tag "vespa-orange.jpg", alt: "orange Vespa scooter", class: "thumbnail card-image top"%>
+            <%end%>          
+            <div class='card-body'>
             <h5><%=listing.name%></h5>
             <h6 class='card-subtitle my-2 text-muted'><%time_ago_in_words(listing.created_at)%> ago </h6>
             <p class='card-text text-secondary text-truncate'><%=listing.description%></p>
