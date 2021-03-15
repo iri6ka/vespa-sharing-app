@@ -1,51 +1,21 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listings</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Category</th>
-      <th>Engine</th>
-      <th>Description</th>
-      <th>Condition</th>
-      <th>Images</th>
-      <th>Odometer</th>
-      <th>Color</th>
-      <th>Transmission</th>
-      <th>Starter</th>
-      <th>Insurance</th>
-      <th>Available</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @listings.each do |listing| %>
-      <tr>
-        <td><%= listing.name %></td>
-        <td><%= listing.price %></td>
-        <td><%= listing.category_id %></td>
-        <td><%= listing.engine_id %></td>
-        <td><%= listing.description %></td>
-        <td><%= listing.condition %></td>
-        <td><%= listing.images %></td>
-        <td><%= listing.odometer %></td>
-        <td><%= listing.color %></td>
-        <td><%= listing.transmission %></td>
-        <td><%= listing.starter %></td>
-        <td><%= listing.insurance %></td>
-        <td><%= listing.available %></td>
-        <td><%= link_to 'Show', listing %></td>
-        <td><%= link_to 'Edit', edit_listing_path(listing) if current_user && current_user.id == listing.user_id %></td>
-        <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } if current_user? && current_user.id == listing.user_id %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Listing', new_listing_path %>
+<h1 class='hero-title text-center'> Listings </h1>
+<div class='container'>
+  <div class='row row-cols-sm-1 row-cols-md-2 row-cols-lg-4'>
+    <%@listings.each do |listing|%>
+      <div class='col mb-4'>
+        <div class='card border-dark h-100'>
+          <img class='card-img top thumbnail' src='https://scontent.fmel12-1.fna.fbcdn.net/v/t1.0-9/320527_2208971498581_517349074_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=cdbe9c&_nc_ohc=KOa4b-00eQUAX8TJ32m&_nc_ht=scontent.fmel12-1.fna&oh=1f38892cd5ed2e5e6f2745031621d1ff&oe=60737580' alt='vespa scooter'>
+          <div class='card-body'>
+            <h5><%=listing.name%></h5>
+            <h6 class='card-subtitle my-2 text-muted'><%time_ago_in_words(listing.created_at)%> ago </h6>
+            <p class='card-text text-secondary text-truncate'><%=listing.description%></p>
+            <div class='d-flex justify-content-between'>
+              <%= link_to "See More", listing_path(listing.id), class: "btn btn-outline-primary"%>
+              <h5> $ <%=listing.price%> </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    <%end%>
+  </div>
+</div>

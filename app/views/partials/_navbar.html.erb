@@ -8,41 +8,39 @@
   </button>
 
   <div class="collapse navbar-collapse mr-autod-flex justify-content-between" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-5-lg">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Find a Vespa </a>
+        <%= link_to "Find a Vespa", listings_path, class: "nav-link"%>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#">Share a Vespa </a>
+        <%= link_to "Share a Vespa", new_listing_path, class: "nav-link"%>
       </li>
 
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="btn btn-outline-secondary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Learn More
-        </a>
-
-       
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="btn btn-outline-secondary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+        Learn More </a>
         <div class="dropdown-menu justify-content-end" aria-labelledby="navbarDropdown">
-        
           <a class="dropdown-item" href="#">How it works</a>
           <a class="dropdown-item" href="#">About us</a>
         </div>
       </li>
-
     </ul>
     <form class="form-inline my-2 my-lg-0">
-
-      <li class="nav-item active">
-      <% if user_signed_in?%>
-        <%= link_to "Log Out", destroy_user_session_path, method: :delete if current_user%>
-        <p> Welcome <%= current_user.email%></p>
-      <%else%>
-          <%=link_to "Log In", new_user_session_path%>
-          <%=link_to "Sign Up", new_user_registration_path%>
-      <%end%>     
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Log In</button>
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Sign Up</button>
-     </li>
-     </form>
+      <ul class="nav-item px-2">
+        <% if user_signed_in?%>
+          <p class="text-sm-left font-italic"> Welcome <%= current_user.email%></p>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            <%= link_to "Log Out", destroy_user_session_path, method: :delete if user_signed_in?%>
+          </button>
+        <%else%>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            <%=link_to "Log In", new_user_session_path%>
+          </button>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            <%=link_to "Sign Up", new_user_registration_path%>
+          </button>
+        <%end%>     
+      </ul>
+    </form>
   </div>
 </nav>
