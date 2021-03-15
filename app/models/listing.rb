@@ -9,4 +9,5 @@ class Listing < ApplicationRecord
   has_many :listing_features, dependent: :destroy
   has_many :features, through: :listing_features
   accepts_nested_attributes_for :listing_features
+  has_one_attached :picture
 end
