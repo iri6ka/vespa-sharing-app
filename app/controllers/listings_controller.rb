@@ -1,4 +1,5 @@
 class ListingsController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :index]
   before_action :set_listing, only: %i[ show edit update destroy ]
   before_action :set_vars_form, only: [:new, :edit]
 
@@ -22,7 +23,7 @@ class ListingsController < ApplicationController
 
   # POST /listings or /listings.json
   def create
-    @listing = Listing.new(listing_params)
+    @listing = current_user.listings.new(listing_params)
 
     respond_to do |format|
       if @listing.save

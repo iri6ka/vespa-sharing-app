@@ -30,3 +30,7 @@ if Engine.count == 0
         puts "created #{engine} engine"
     end
 end
+
+if User.count == 0
+    User.create(email: "ikonnova@test.com", password: "Password1", password_confirmation: "Password1" )
+end
