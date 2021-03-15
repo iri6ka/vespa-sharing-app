@@ -4,7 +4,7 @@
     <%@listings.each do |listing|%>
       <div class='col mb-4'>
         <div class='card border-dark h-100'>
-          <img class='card-img top thumbnail' src='https://scontent.fmel12-1.fna.fbcdn.net/v/t1.0-9/320527_2208971498581_517349074_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=cdbe9c&_nc_ohc=KOa4b-00eQUAX8TJ32m&_nc_ht=scontent.fmel12-1.fna&oh=1f38892cd5ed2e5e6f2745031621d1ff&oe=60737580' alt='vespa scooter'>
+          <%=image_tag "vespa-orange.jpg", alt: "orange Vespa scooter", class: "thumbnail card-image top"%>
           <div class='card-body'>
             <h5><%=listing.name%></h5>
             <h6 class='card-subtitle my-2 text-muted'><%time_ago_in_words(listing.created_at)%> ago </h6>

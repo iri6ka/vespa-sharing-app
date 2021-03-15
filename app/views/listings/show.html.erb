@@ -1,7 +1,7 @@
 <div class='container d-flex flex-column flex-md-row px-2 my-2 my-md-5'>
   <div class='col-12 col-md-7 col-lg-8 p-0 pr-md-3'>
     <div class='col-12 p-0 mb-4'>
-      <img class='thumbnail' src='https://scontent.fmel12-1.fna.fbcdn.net/v/t1.0-9/320527_2208971498581_517349074_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=cdbe9c&_nc_ohc=KOa4b-00eQUAX8TJ32m&_nc_ht=scontent.fmel12-1.fna&oh=1f38892cd5ed2e5e6f2745031621d1ff&oe=60737580' alt='vespa scooter'></div>
+      <%=image_tag "vespa-orange.jpg", alt: "orange Vespa scooter", class: "thumbnail card-image top"%>
     </div>
     <div class='col-lg-4 p-0 mx-2 d-md-block'>
       <h1 class='mb-sm-2 mb-md-5'><%=@listing.name%></h1>
@@ -16,8 +16,8 @@
 </div>
 
 <div class='container'>
-  <div class='d-flex justify-content-evenly'>
-      <%=link_to "Edit", edit_listing_path(@listing.id), class: 'btn btn-warning mr-3' if current_user && current_user.id == @listing.user_id %>
-      <%=link_to "Delete", @listing, method: :delete, data: {confirm: "Are You Sure?"}, class: 'btn btn-danger mr-3' if current_user && current_user.id == @listing.user_id %>
+  <div class ='d-flex justify-content-evenly'>
+    <%=link_to "Edit", edit_listing_path(@listing.id), class: "btn btn-warning mr-3" if current_user && current_user.id == @listing.user_id%>
+    <%=link_to "Delete", @listing, method: :delete, data: {confirm: "Are you sure?"} , class: "btn btn-danger mr-3" if current_user && current_user.id == @listing.user_id%>
   </div>
 </div>
