@@ -26,3 +26,16 @@
     <%=link_to "Delete", @listing, method: :delete, data: {confirm: "Are you sure?"} , class: "btn btn-danger mr-3" if current_user && current_user.id == @listing.user_id%>
   </div>
 </div>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+    document.querySelector("[data-stripe='payment']")
+    .addEventListener("click", () => {
+        const stripe = Stripe(
+          "<%=Rails.application.credentials.dig(:stripe, :public_key)%>"
+        );
+        stripe.redirectToCheckout({
+          sessionId: "<%= @session_id%>"
+        });
+    });
+</script>
