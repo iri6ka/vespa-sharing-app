@@ -15,7 +15,13 @@
         <span class='badge badge-pill badge-info'> <%=feature.name%></span>
       <%end%>
       <p class='blockquote mt-2'><%=@listing.description%></p>
-      <button class='btn btn-primary p-3'> Buy: $<%=@listing.price%></button>
+      <%if current_user && @listing.available == true%> 
+        <button data-stripe="payment" class='btn btn-primary p-3'> Book: $<%=@listing.price%></button> 
+      <%elsif @listing.available == false%> 
+        <button class='btn btn-secondary' disabled> BOOKED </button>
+      <% else%>
+        <%=button_to "Login to buy", new_user_session_path, class: "btn btn-info" %> 
+      <%end%>
     </div>
   </div>
 </div>
