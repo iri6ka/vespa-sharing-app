@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light d-flex">
+<nav class="navbar navbar-expand-lg navbar-light bg-light d-flex px-5">
     <a class="navbar-brand" href="#">
-    <img src="https://drive.google.com/file/d/1gIidH65fgExR9Btop12egSRrwyePaq5e/view?usp=sharing" width="30" height="30" class="d-inline-block align-top">
+    <%= image_tag "favicon.ico"%> 
     Vespa Sharing Club
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,19 +10,13 @@
   <div class="collapse navbar-collapse mr-autod-flex justify-content-between" id="navbarSupportedContent">
     <ul class="navbar-nav mr-5-lg">
       <li class="nav-item active">
+        <%= link_to "Home", root_path, class: "nav-link"%>
+      </li>
+      <li class="nav-item active">
         <%= link_to "Find a Vespa", listings_path, class: "nav-link"%>
       </li>
       <li class="nav-item active">
         <%= link_to "Share a Vespa", new_listing_path, class: "nav-link"%>
-      </li>
-
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="btn btn-outline-secondary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
-        Learn More </a>
-        <div class="dropdown-menu justify-content-end" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">How it works</a>
-          <a class="dropdown-item" href="#">About us</a>
-        </div>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
