@@ -4,4 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :listings
+  enum role: {normal: 0, super: 1, edit_master: 2}
 end
