@@ -16,7 +16,7 @@
       <%end%>
       <p class='blockquote mt-2'><%=@listing.description%></p>
       <%if current_user && @listing.available == true%> 
-        <button data-stripe="payment" class='btn btn-primary p-3'> Book: $<%=@listing.price%></button> 
+        <button data-stripe="payment" class='btn btn-primary p-3'> Book: $<%=convert_price_to_dollars(@listing.price)%></button> 
       <%elsif @listing.available == false%> 
         <button class='btn btn-secondary' disabled> BOOKED </button>
       <% else%>

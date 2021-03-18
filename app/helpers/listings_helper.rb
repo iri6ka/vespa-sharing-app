@@ -6,5 +6,9 @@ module ListingsHelper
             button ="<button class='btn btn-primary' disabled> Login To Book</button>"
         end
         return button.html_safe
-    end    
+    end
+    def convert_price_to_dollars(price)
+        number_with_precision price/100, precision: 2
+    end
+
 end

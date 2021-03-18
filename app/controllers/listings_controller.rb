@@ -17,7 +17,7 @@ class ListingsController < ApplicationController
       client_reference_id: current_user ? current_user.id : nil,
       customer_email: current_user ? current_user.email : nil,
       line_items: [{
-        amount: @listing.price * 100,
+        amount: @listing.price,
         name: @listing.name,
         description: @listing.description,
         currency: 'aud', 

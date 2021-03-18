@@ -10,4 +10,18 @@ class Listing < ApplicationRecord
   has_many :features, through: :listing_features
   accepts_nested_attributes_for :listing_features
   has_one_attached :picture
+
+  before_save :remove_whitespace
+  before_validation :change_price_to_cents, if: :price_changed?
+
+  private
+
+  def remove_whitespace # removing whitespace from name and description fields 
+    self.name = self.name.strip 
+    self.description = self.description.strip
+  end
+
+  def change_price_to_cents
+    self.price = (self.price * 100).round
+  end
 end
