@@ -1,3 +1,5 @@
+# VESPA SHARING APP
+
 Welcome to my first ever Ruby on Rails project -- ***Vespa Sharing Club***.
 ___
 ____
