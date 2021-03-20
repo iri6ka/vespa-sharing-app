@@ -96,7 +96,7 @@ class ListingsController < ApplicationController
     end
 
 
-    def set_vars_form
+    def set_vars_form # setting up main 
       @categories = Category.all
       @conditions = Listing.conditions.keys
       @engines = Engine.all

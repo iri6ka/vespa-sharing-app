@@ -10,11 +10,29 @@
   </div>
     <div class='col-lg-4 p-0 mx-2 d-md-block'>
       <h1 class='mb-sm-2 mb-md-5'><%=@listing.name%></h1>
-      <h4 class='text-muted'> Condition: <%=@listing.condition.capitalize%></h4>
-      <%@listing.features.each do |feature|%>
-        <span class='badge badge-pill badge-info'> <%=feature.name%></span>
-      <%end%>
+
       <p class='blockquote mt-2'><%=@listing.description%></p>
+      <h4 class='text-muted'> Condition: <%=@listing.condition.capitalize%></h4>
+      <h4 class='text-muted'> Odometer: <%=@listing.odometer%> kms</h4>
+      <h4 class='text-muted'> Color: <%=@listing.color%></h4>     
+        <%if @listing.insurance == true%> 
+            <h4 class='text-muted'> Insurance: Insured </h4>
+        <% else @listing.insurance == false%> 
+            <h4 class='text-muted'> Insurance: Uninsured </h4>
+        <% end %>
+
+      <h4 class='text-muted'> Model: <%=@listing.category.name%></h4>
+      <h4 class='text-muted'> Engine: <%=@listing.engine.name%></h4>
+      <h4 class='text-muted'> Transmission: <%=@listing.transmission%></h4>
+      <h4 class='text-muted'> Kickstarter: <%=@listing.starter%></h4>
+
+
+      <h4 class='text-muted'> Engine: <%=@listing.engine.name%></h4>
+
+      <%@listing.features.each do |feature|%>
+        <span class='badge badge-pill badge-info'><%=feature.name%></span>
+        <%end%>
+
       <%if current_user && @listing.available == true%> 
         <button data-stripe="payment" class='btn btn-primary p-3'> Book: $<%=convert_price_to_dollars(@listing.price)%></button> 
       <%elsif @listing.available == false%> 

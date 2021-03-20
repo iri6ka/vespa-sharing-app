@@ -21,7 +21,7 @@ class Listing < ApplicationRecord
     self.description = self.description.strip
   end
 
-  def change_price_to_cents
+  def change_price_to_cents # changing pricing for the listing to cents
     self.price = (self.price * 100).round
   end
 end
