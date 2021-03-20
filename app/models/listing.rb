@@ -24,4 +24,13 @@ class Listing < ApplicationRecord
   def change_price_to_cents # changing pricing for the listing to cents
     self.price = (self.price * 100).round
   end
-end
+
+  def change_from_booked_to_available #changing a booked status to available
+    if self.available == false
+      change_available_status = self
+      change_available_status.available == true
+      change_available_status.save
+      return change_available_status
+    end
+  end
+  end

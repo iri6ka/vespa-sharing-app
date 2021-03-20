@@ -26,9 +26,6 @@
       <h4 class='text-muted'> Transmission: <%=@listing.transmission%></h4>
       <h4 class='text-muted'> Kickstarter: <%=@listing.starter%></h4>
 
-
-      <h4 class='text-muted'> Engine: <%=@listing.engine.name%></h4>
-
       <%@listing.features.each do |feature|%>
         <span class='badge badge-pill badge-info'><%=feature.name%></span>
         <%end%>
