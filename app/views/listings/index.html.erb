@@ -13,6 +13,11 @@
             <h5><%=listing.name%></h5>
             <h6 class='card-subtitle my-2 text-muted'>Added <%=time_ago_in_words(listing.created_at)%> ago </h6>
             <p class='card-text text-secondary text-truncate'><%=listing.description%></p>
+              <%if listing.available == true%> 
+                <h6 class='my-2 text-success'>Available for Booking</h6>
+              <% else listing.available == false%> 
+                <h6 class='my-2 text-muted'><em>Booked</em></h6>
+              <%end%>
             <div class='d-flex justify-content-between'>
               <%= link_to "See More", listing_path(listing.id), class: "btn btn-outline-primary"%>
               <h5> $ <%=convert_price_to_dollars(listing.price)%> </h5>
